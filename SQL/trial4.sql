@@ -37,8 +37,20 @@ WHERE product_category_id=1;
 
 CREATE TABLE product (
     product_id INT;
-    product_name VARCHAR
+    product_name VARCHAR(500),
+    original_price INT,
+    sale_price INT,
+    product_category_id INT,
+    CONSTRAINT pk_product
+    PRIMARY KEY (product_id),
+    CONSTRAINT fk_prod_prodcategory
+    FOREIGN KEY( product_category_id)REFERENCES product_category(product_category_id)
+
 );
+INSERT INTO product(product_id,product_name,original_price,sale_price,product_category_id) VALUES
+--@martinaarmanios fill accourding to front 
+(1,'pink libgloss', 100,100 , 1)
+
 CREATE TABLE Roles (
     RoleID INT PRIMARY KEY AUTO_INCREMENT,
     RoleName VARCHAR(50) NOT NULL
